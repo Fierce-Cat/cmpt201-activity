@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <wait.h>
+int main() {
+  pid_t pid = fork();
+  if (pid == 0) {
+    // Child
+    printf("child");
+  } else if (pid > 0) {
+    // Parent
+    execl("ls","/etc"); 
+    // execl("./activity-2-fork", "--test");
+    printf("parent");
+  } else {
+    
+  }
+  return 0;
+}
